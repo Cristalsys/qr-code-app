@@ -1,0 +1,55 @@
+html {
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(244, 246, 248);
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+.container1 {
+    margin: 46px auto 0 auto;
+}
+
+.container-menu {
+    display: flex;
+}
+
+.sidebar {
+    position: fixed;
+}
+
+.main {
+    width: 100%;
+    margin-left: 230px;
+    padding: 20px 40px;
+}
+
+.main1 {
+    width: 100%;
+    margin-left: 230px;
+    marginTop: 46px;
+}
+
+
