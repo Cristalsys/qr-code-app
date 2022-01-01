@@ -5,8 +5,6 @@ const {
 const User = require('../models/User')
 const {cloudinary} = require('../utils/cloudinary');
 const config = require('config')
-const Post = require("../models/Post");
-const History = require("../models/History");
 
 
 const getAllUsers = async (req, res) => {
@@ -75,7 +73,7 @@ const editUserDetails = async (req, res) => {
             lastName: req.body.lastName,
             organization: req.body.organization
         }, {new: true})
-            .select('firstName lastName ')
+            .select('firstName lastName organization')
 
         return res.json(details)
     } catch (e) {
