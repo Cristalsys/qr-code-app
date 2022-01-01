@@ -167,39 +167,39 @@ const Posts = (props) => {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {displayData && displayData.length > 0 && displayData.map((row) => (
-                                        <TableRow key={row._id}>
-                                            <TableCell className={classes.hideId} component="th" scope="row">
-                                                {row._id}
-                                            </TableCell>
-                                            <TableCell
-                                                className={!matches ? classes.textAlign : classes.textAlign1}
-                                            >
-                                                {"№ " + row.body}</TableCell>
-                                            {/*<TableCell align="right">{row.createdAt}</TableCell>*/}
-                                            <TableCell align="right">{(row.createdAt).split('T')[0]
-                                                // + (row.createdAt).substring(11, 19)
-                                            }</TableCell>
-                                            {/*exprirationDate*/}
-                                            <TableCell align="right">{(row.expirationDate).split('T')[0]
-                                            }</TableCell>
+                                    {/*{displayData && displayData.length > 0 && displayData.map((row) => (*/}
+                                    {/*    <TableRow key={row._id}>*/}
+                                    {/*        <TableCell className={classes.hideId} component="th" scope="row">*/}
+                                    {/*            {row._id}*/}
+                                    {/*        </TableCell>*/}
+                                    {/*        <TableCell*/}
+                                    {/*            className={!matches ? classes.textAlign : classes.textAlign1}*/}
+                                    {/*        >*/}
+                                    {/*            {"№ " + row.body}</TableCell>*/}
+                                    {/*        /!*<TableCell align="right">{row.createdAt}</TableCell>*!/*/}
+                                    {/*        <TableCell align="right">{(row.createdAt).split('T')[0]*/}
+                                    {/*            // + (row.createdAt).substring(11, 19)*/}
+                                    {/*        }</TableCell>*/}
+                                    {/*        /!*exprirationDate*!/*/}
+                                    {/*        <TableCell align="right">{(row.expirationDate).split('T')[0]*/}
+                                    {/*        }</TableCell>*/}
 
-                                            <TableCell align="right">
-                                                {
-                                                    props.user.authenticated && props.user._id === row.user._id ? (
-                                                        <DeletePost postId={row._id}/>
-                                                    ) : null
-                                                }
-                                            </TableCell>
-                                            <TableCell align="right">
-                                                {
-                                                    props.user.authenticated && props.user._id === row.user._id ? (
-                                                        <MoreIcon onClick={() => handlePostClick(row._id)}/>
-                                                    ) : null
-                                                }
-                                            </TableCell>
-                                        </TableRow>
-                                    ))}
+                                    {/*        <TableCell align="right">*/}
+                                    {/*            {*/}
+                                    {/*                props.user.authenticated && props.user._id === row.user._id ? (*/}
+                                    {/*                    <DeletePost postId={row._id}/>*/}
+                                    {/*                ) : null*/}
+                                    {/*            }*/}
+                                    {/*        </TableCell>*/}
+                                    {/*        <TableCell align="right">*/}
+                                    {/*            {*/}
+                                    {/*                props.user.authenticated && props.user._id === row.user._id ? (*/}
+                                    {/*                    <MoreIcon onClick={() => handlePostClick(row._id)}/>*/}
+                                    {/*                ) : null*/}
+                                    {/*            }*/}
+                                    {/*        </TableCell>*/}
+                                    {/*    </TableRow>*/}
+                                    {/*))}*/}
                                 </TableBody>
                             </Table>
                         </TableContainer>
