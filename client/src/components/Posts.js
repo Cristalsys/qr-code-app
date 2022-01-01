@@ -167,7 +167,7 @@ const Posts = (props) => {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {displayData && displayData.map((row) => (
+                                    {displayData && displayData.length > 0 && displayData.map((row) => (
                                         <TableRow key={row._id}>
                                             <TableCell className={classes.hideId} component="th" scope="row">
                                                 {row._id}
