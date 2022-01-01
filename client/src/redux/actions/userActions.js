@@ -65,7 +65,7 @@ const setAuthorizationHeader = (token) => {
 
 export const getUserData = () => (dispatch) => {
     dispatch({type: LOADING_USER});
-    axios.get(`/user/me`)
+    axios.get(`/api/user/me`)
         .then(res => {
             dispatch({
                 type: SET_USER,
@@ -77,7 +77,7 @@ export const getUserData = () => (dispatch) => {
 
 export const getAllUsers = () => (dispatch) => {
     dispatch({type: LOADING_USERS});
-    axios.get(`/user`)
+    axios.get(`/api/user`)
         .then(res => {
             dispatch({
                 type: SET_USERS,
@@ -89,7 +89,7 @@ export const getAllUsers = () => (dispatch) => {
 
 export const uploadImage = (formData) => (dispatch) => {
     dispatch({type: LOADING_IMAGE})
-    axios.post('/user/uploadImage', formData)
+    axios.post('/api/user/uploadImage', formData)
         .then((res) => {
             dispatch({
                 type: UPLOAD_IMAGE,
@@ -102,7 +102,7 @@ export const uploadImage = (formData) => (dispatch) => {
 export const editUserDetails = (userDetails) => (dispatch) => {
     dispatch({type: LOADING_DETAILS});
     axios
-        .post('/user/editUserDetails', userDetails)
+        .post('/api/user/editUserDetails', userDetails)
         .then((res) => {
             dispatch({
                 type: EDIT_DETAILS,
@@ -115,7 +115,7 @@ export const editUserDetails = (userDetails) => (dispatch) => {
 
 export const deleteUser = (userId) => (dispatch) => {
     axios
-        .delete(`/user/${userId}`)
+        .delete(`/api/user/${userId}`)
         .then(() => {
             dispatch({
                 type: DELETE_USER,

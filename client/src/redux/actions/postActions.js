@@ -20,7 +20,7 @@ import axios from "axios";
 
 export const getPosts = () => (dispatch) => {
     dispatch({type: LOADING_DATA})
-    axios.get('/post/myPosts')
+    axios.get('/api/post/myPosts')
         .then(res => {
             dispatch({
                 type: SET_POSTS,
@@ -37,7 +37,7 @@ export const getPosts = () => (dispatch) => {
 
 export const getPost = (postId) => (dispatch) => {
     dispatch({type: LOADING_DATA_POST})
-    axios.get(`/post/${postId}`)
+    axios.get(`/api/post/${postId}`)
         .then((res) => {
             dispatch({
                 type: SET_POST,
@@ -49,7 +49,7 @@ export const getPost = (postId) => (dispatch) => {
 
 
 export const deletePost = (postId) => (dispatch) => {
-    axios.delete(`/post/${postId}`)
+    axios.delete(`/api/post/${postId}`)
         .then(() => {
             dispatch({type: DELETE_POST, payload: postId})
         })
@@ -59,7 +59,7 @@ export const deletePost = (postId) => (dispatch) => {
 
 export const addPost = (newPost, history) => (dispatch) => {
     dispatch({type: LOADING_DATA_POST})
-    axios.post('/post/createPost', newPost)
+    axios.post('/api/post/createPost', newPost)
         .then((res) => {
             dispatch({
                 type: ADD_POST,
@@ -84,7 +84,7 @@ export const clearErrors = () => (dispatch) => {
 export const editPostDetails = (postDetails, postId) => (dispatch) => {
     dispatch({type: LOADING_POST_DETAILS});
     axios
-        .post(`/post/editPostDetails/${postId}`, postDetails)
+        .post(`/api/post/editPostDetails/${postId}`, postDetails)
         .then((res) => {
             dispatch({
                 type: EDIT_DETAILS_POST,
@@ -96,7 +96,7 @@ export const editPostDetails = (postDetails, postId) => (dispatch) => {
 
 export const uploadImagePost = (formData, postId) => (dispatch) => {
     dispatch({type: LOADING_POST_IMAGE})
-    axios.post(`/post/uploadImagePost/${postId}`, formData)
+    axios.post(`/api/post/uploadImagePost/${postId}`, formData)
         .then((res) => {
             dispatch({
                 type: ADD_POST_FILE,
