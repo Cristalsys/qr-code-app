@@ -17,7 +17,7 @@ import axios from 'axios'
 
 export const loginUser = (userData, history) => (dispatch) => {
     dispatch({type: LOADING_UI})
-    axios.post('/auth/signin', userData)
+    axios.post('/api/auth/signin', userData)
         .then((res) => {
             setAuthorizationHeader(res.data.token)
             dispatch(getUserData())
@@ -34,7 +34,7 @@ export const loginUser = (userData, history) => (dispatch) => {
 
 export const signupUser = (newUserData, history) => (dispatch) => {
     dispatch({type: LOADING_UI})
-    axios.post('/auth/signup', newUserData)
+    axios.post('/api/auth/signup', newUserData)
         .then(res => {
             setAuthorizationHeader(res.data.token)
             dispatch(getUserData())
