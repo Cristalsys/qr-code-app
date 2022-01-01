@@ -177,11 +177,13 @@ const Posts = (props) => {
                                             >
                                                 {"№ " + row.body}</TableCell>
                                             {/*<TableCell align="right">{row.createdAt}</TableCell>*/}
-                                            <TableCell align="right">{(row.createdAt).split('T')[0]
+                                            <TableCell align="right">{(row.createdAt)
+                                                // .split('T')[0]
                                                 // + (row.createdAt).substring(11, 19)
                                             }</TableCell>
                                             {/*exprirationDate*/}
-                                            <TableCell align="right">{(row.expirationDate).split('T')[0]
+                                            <TableCell align="right">{(row.expirationDate)
+                                                // .split('T')[0]
                                             }</TableCell>
 
                                             <TableCell align="right">
