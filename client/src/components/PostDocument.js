@@ -72,24 +72,25 @@ const PostDocument = (props) => {
         props.uploadImagePost(sendData, props.post._id)
     }
 
+
     return (
         <div className={classes.root}>
             {format && format.match(patt1)[0] == '.pdf' &&
             <div className={classes.embed}>
-                <embed src={`http://localhost:5000/${props.post.filePath}`} type={'application/pdf'} width={'auto'}
+                <embed src={`https://qr-code-app-encryption.herokuapp.com/${props.post.filePath}`} type={'application/pdf'} width={'auto'}
                        height={'455px'}/>
             </div>
             }
             {format && format.match(patt1)[0] == '.jpg' &&
             <div>
                 <Avatar className={classes.image}
-                        variant={'square'} alt="Remy Sharp" src={`http://localhost:5000/${props.post.filePath}`}/>
+                        variant={'square'} alt="Remy Sharp" src={`https://qr-code-app-encryption.herokuapp.com/${props.post.filePath}`}/>
             </div>
             }
             {format && format.match(patt1)[0] == '.png' &&
             <div>
                 <Avatar className={classes.image}
-                        variant={'square'} alt="Remy Sharp" src={`http://localhost:5000/${props.post.filePath}`}/>
+                        variant={'square'} alt="Remy Sharp" src={`https://qr-code-app-encryption.herokuapp.com/${props.post.filePath}`}/>
             </div>
             }
 
