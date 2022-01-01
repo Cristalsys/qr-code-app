@@ -7,16 +7,7 @@ const path = require("path");
 
 const app = express()
 
-if (process.env.NODE_ENV === 'production') {
-    app.use('/', express.static(path.join(__dirname, './client', 'build')))
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, './client', 'build', 'index.html'))
-    })
-
-}
-
-const PORT = process.env.PORT || 5000
 
 // middleware
 app.use('/uploads', express.static('uploads'))
@@ -30,6 +21,18 @@ app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/user', require('./routes/user.routes'))
 app.use('/api/post', require('./routes/post.routes'))
 app.use('/api/history', require('./routes/history.routes'))
+
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.join(__dirname, './client', 'build')))
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, './client', 'build', 'index.html'))
+    })
+
+}
+
+const PORT = process.env.PORT || 5000
+
 
 async function start() {
 
