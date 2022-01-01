@@ -53,5 +53,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://qr-code-app-encryption.herokuapp.com/api"
+  "proxy": "http://qr-code-app-encryption.herokuapp.com"
 }

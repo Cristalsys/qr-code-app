@@ -51,7 +51,7 @@ const signup = async (req, res) => {
 
         const token = jwt.sign(
             {userAuth: user},
-            config.get('jwtSecret'),
+            process.env.JWT_SECRET || config.get('jwtSecret'),
             {expiresIn: '5h'}
         )
 
@@ -84,7 +84,7 @@ const signin = async (req, res) => {
 
         const token = jwt.sign(
             {userAuth: user},
-            config.get('jwtSecret'),
+            process.env.JWT_SECRET || config.get('jwtSecret'),
             {expiresIn: '5h'}
         )
 
