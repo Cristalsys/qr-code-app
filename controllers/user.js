@@ -5,6 +5,8 @@ const {
 const User = require('../models/User')
 const {cloudinary} = require('../utils/cloudinary');
 const config = require('config')
+const Post = require("../models/Post");
+const History = require("../models/History");
 
 
 const getAllUsers = async (req, res) => {
@@ -83,10 +85,29 @@ const editUserDetails = async (req, res) => {
 
 }
 
+const deleteUser = async (req, res) => {
+    try {
+
+        const user = await User.findById(req.params.userId)
+
+        if (!user) {
+            return res.status(422).json({message: 'user not found'})
+        } else {
+            await User.deleteOne({_id: req.params.userId})
+            res.json({message: 'user has been deleted'})
+        }
+
+    } catch (e) {
+        console.log(e)
+        res.status(500).json({error: e.code})
+    }
+
+}
 
 module.exports = {
     getAuthenticatedUser,
     uploadImage,
     editUserDetails,
-    getAllUsers
+    getAllUsers,
+    deleteUser
 }

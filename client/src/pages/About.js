@@ -111,8 +111,8 @@ const About = (props) => {
                             </Hidden>
                         </nav>
                         <main className={classes.content}>
-                            <h1 style={{textAlign: 'center',
-                            marginBottom: '20px'
+                            <h1 style={{
+                                marginBottom: '20px'
                             }}>About program</h1>
                             <p className={classes.contentMargin}>
                                 In today's world, there are millions of documents

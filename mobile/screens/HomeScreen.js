@@ -62,9 +62,10 @@ const HomeScreen = (props) => {
         return <Text>No access to camera</Text>;
     }
 
+
     const handleBarCodeScanned = ({type, data}) => {
         setScanned(true);
-        axios.post('http://172.16.63.215:5000/api/post/checkValidity', {body: data})
+        axios.post('http://192.168.0.104:5000/api/post/checkValidity', {body: data})
             .then((res) => {
                 // if ('document id valid' === res.data.message) {
                     alert('document is valid')

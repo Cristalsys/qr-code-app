@@ -9,6 +9,9 @@ import List from "@material-ui/core/List";
 import PersonIcon from '@material-ui/icons/Person';
 import InfoIcon from '@material-ui/icons/Info';
 
+
+import {connect} from "react-redux";
+
 const ListItemsJs = (props) => {
 
     return (
@@ -50,20 +53,40 @@ const ListItemsJs = (props) => {
                 </ListItemIcon>
                 <ListItemText primary="Profile"/>
             </ListItem>
-            <ListItem button
-                      selected={props.selectedIndex === 3}
-                      component={Link}
-                      to={`/about`}
+            {props.role === 1 ? (
 
-            >
-                <ListItemIcon>
-                    <InfoIcon/>
-                </ListItemIcon>
-                <ListItemText primary="About us"/>
-            </ListItem>
+                <ListItem button
+                          selected={props.selectedIndex === 4}
+                          component={Link}
+                          to={`/administration`}
+
+                >
+                    <ListItemIcon>
+                        <InfoIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary="Administration"/>
+                </ListItem>
+
+            ) : (
+                <ListItem button
+                          selected={props.selectedIndex === 3}
+                          component={Link}
+                          to={`/about`}
+
+                >
+                    <ListItemIcon>
+                        <InfoIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary="About us"/>
+                </ListItem>
+            )}
         </List>
     )
 };
 
 
-export default ListItemsJs
+const mapStateToProps = (state) => ({
+    role: state.user.role
+});
+
+export default connect(mapStateToProps)(ListItemsJs)

@@ -7,7 +7,7 @@ import PDFReader from 'rn-pdf-reader-js'
 const DetailsPostFileScreen = ({route}) => {
 
     const patt1 = /\.[0-9a-z]+$/i;
-    const connection = 'http://172.16.63.215:5000'
+    const connection = 'http://192.168.0.104:5000'
 
     return (
         <View style={styles.container}>

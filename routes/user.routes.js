@@ -7,7 +7,8 @@ const {
     getAuthenticatedUser,
     uploadImage,
     editUserDetails,
-    getAllUsers
+    getAllUsers,
+    deleteUser
 } = require('../controllers/user')
 
 
@@ -16,6 +17,7 @@ router.get('/', auth, isAdmin, getAllUsers)
 router.get('/me', auth, getAuthenticatedUser)
 router.post('/uploadImage', auth, uploadImage)
 router.post('/editUserDetails', auth, editUserDetails)
+router.delete('/:userId', auth, isAdmin, deleteUser)
 
 
 module.exports = router

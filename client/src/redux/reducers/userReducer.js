@@ -2,7 +2,7 @@ import {
     SET_USER,
     SET_AUTHENTICATED,
     SET_UNAUTHENTICATED,
-    LOADING_USER, UPLOAD_IMAGE, LOADING_IMAGE, LOADING_DETAILS, EDIT_DETAILS
+    LOADING_USER, UPLOAD_IMAGE, LOADING_IMAGE, LOADING_DETAILS, EDIT_DETAILS, LOADING_USERS, SET_USERS, DELETE_USER
 
 } from "../types";
 
@@ -10,13 +10,15 @@ import {
 const initialState = {
     authenticated: false,
     loading: false,
+    loadingUsers: false,
     loadingImage: false,
     loadingDetails: false,
     email: '',
     avatar: '',
     firstName: '',
     lastName: '',
-    organization: ''
+    organization: '',
+    users: []
 
 };
 
@@ -36,6 +38,11 @@ export default function (state = initialState, action) {
                 ...state,
                 loading: true
             };
+        case LOADING_USERS:
+            return {
+                ...state,
+                loadingUsers: true
+            };
         case LOADING_IMAGE:
             return {
                 ...state,
@@ -51,6 +58,13 @@ export default function (state = initialState, action) {
                 authenticated: true,
                 loading: false,
                 ...action.payload
+            }
+        }
+        case SET_USERS: {
+            return {
+                ...state,
+                loadingUsers: false,
+                users: action.payload
             }
         }
         case UPLOAD_IMAGE: {
@@ -69,7 +83,14 @@ export default function (state = initialState, action) {
                 organization: action.payload.organization
             }
         }
-
+        case DELETE_USER: {
+            return {
+                ...state,
+                users: [...state.users.filter(
+                    (u) => u._id !== action.payload
+                )]
+            }
+        }
         default: {
             return state
         }
